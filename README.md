@@ -159,4 +159,6 @@ python -m pytest tests/
   读取 data/sample-wos/ 下的 WoS 导出 txt 文件，执行完整分析流程。
   模式 3：本地已有 JSONL 数据直接分析
   python run.py
+* 统一了3种模式数据集分析的通用函数框架，两者输出完全一致
+* 试设计了多文献类的分析，即可创建config/query1.yaml等等多个query，修改其中参数输出对应的文献检索结果，可通过修改辅助工具cross_analysis.py进行交叉验证
 * 更多详细信息请看zip中的readme
