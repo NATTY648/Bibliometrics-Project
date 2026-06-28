@@ -143,3 +143,20 @@ python -m pytest tests/
 * 文献耦合矩阵：B = A·A^T。
 * 中介中心性距离转换：由于文献计量是相似度加权网络，计算路径时使用 D = 1/W 转换为距离矩阵。
 * 社区分裂：采用贪婪模块度最大化算法（Newman-Girvan 算法）在 NetworkX 中完成聚类。
+
+### 5 重要更新！！！
+个人在“完美的随意文献计量检索.zip”更新了以下内容：
+
+* python生成的图片中圆圈缩小，类群之间间距进一步放大，经多次实验，均无类群碰撞的错误。
+* 改进了数据清洗，可在config/invalid_keywords.txt中修改无效关键词，并列出了清洗前后的文本数量变化。
+* 增加了辅助工具clean.py 可一键清空当前配置对应的所有输出文件。其可自动读取 config/query.yaml 中的输出路径，精准清理当前课题的生成结果。
+* 改进了数据源选择
+  模式 1：在线检索 OpenAlex 文献并完整分析（需配置 API 密钥，默认使用作者API）
+  python run.py --fetch-openalex
+  自动完成：API 抓取文献 → 数据清洗 → 四类网络计算 → 可视化绘图 → 生成报告。
+  模式 2：本地 Web of Science 数据集分析
+  python run.py --use-wos
+  读取 data/sample-wos/ 下的 WoS 导出 txt 文件，执行完整分析流程。
+  模式 3：本地已有 JSONL 数据直接分析
+  python run.py
+* 更多详细信息请看zip中的readme
